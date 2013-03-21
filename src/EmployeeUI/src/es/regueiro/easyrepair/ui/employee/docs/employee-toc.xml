@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN" "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+<toc version="2.0">
+    <tocitem text="Módulo de empleados">
+        <tocitem text="Acerca del módulo de empleados" target="es.regueiro.easyrepair.ui.employee.about"/>
+        <tocitem text="Acerca del buscador de empleados" target="es.regueiro.easyrepair.ui.employee.browser"/>
+        <tocitem text="Acerca de la vista detallada de empleados" target="es.regueiro.easyrepair.ui.employee.detailed"/>
+        <tocitem text="Acerca del editor de empleados" target="es.regueiro.easyrepair.ui.employee.editor"/>
+    </tocitem>
+</toc>

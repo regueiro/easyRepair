@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.stock.Part" table="PART" >
+        <id name="id" type="long">
+            <column name="id" length="11"/>
+            <generator class="identity" />
+        </id>
+        <version name="version" column="version" access="field" />
+        <property name="enabled" type="boolean">
+            <column name="enabled" default="1" not-null="true"/>
+        </property>
+        <property name="make" type="string" >
+            <column name="make" length="100"/>
+        </property>
+        <property name="model" type="string" >
+            <column name="model" length="100" not-null="true"/>
+        </property>
+        <property name="category" type="string" >
+            <column name="category" length="100"/>
+        </property>
+        <property name="price" type="big_decimal" access="field">
+            <column name="price" precision="10" scale="2"/>
+        </property>
+        <property name="notes" type="text">
+            <column name="notes"/>
+        </property>
+        <bag name="stock" table="STOCK" access="field" cascade="all-delete-orphan">
+            <key column="PART_id" not-null="true"/>
+            <one-to-many class="es.regueiro.easyrepair.model.stock.Stock"  />
+        </bag>
+        
+    </class>    
+</hibernate-mapping>

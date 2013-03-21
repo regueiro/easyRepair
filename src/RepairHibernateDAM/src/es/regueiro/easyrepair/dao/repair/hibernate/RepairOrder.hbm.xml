@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.repair.RepairOrder" table="REPAIRORDER" >
+        <id name="id" type="long">
+            <column name="id" length="11"/>
+            <generator class="identity" />
+        </id>
+        <version name="version" column="version" access="field" />
+        <property name="enabled" type="boolean">
+            <column name="enabled" default="1" not-null="true"/>
+        </property>
+        <property name="orderNumber" type="string"  >
+            <column name="ordernumber" length="11" unique="true"/>
+        </property>
+        <property name="status" type="string" >
+            <column name="status" length="100"/>
+        </property>
+        <property name="gasTankLevel" type="string" >
+            <column name="gastanklevel" length="100"/>
+        </property>
+        <property name="description" type="text" >
+            <column name="description"/>
+        </property>
+        <property name="kilometres" type="string" access="field">
+            <column name="kilometres" length="10"/>
+        </property>
+        <property name="notes" type="text">
+            <column name="notes"/>
+        </property>
+        <property name="orderDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="orderdate"/>
+        </property>
+        <property name="estimatedDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="estimateddate"/>
+        </property>
+        <property name="finishDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="finishdate"/>
+        </property>
+        <property name="deliveryDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="deliverydate"/>
+        </property>
+
+        <many-to-one name="responsible" column="RESPONSIBLE_Id" class="es.regueiro.easyrepair.model.employee.Employee" access="field"/>
+        
+        <one-to-one name="invoice" class="es.regueiro.easyrepair.model.repair.RepairInvoice" access="field" cascade="all-delete-orphan"/>
+        
+        <one-to-one name="estimate" class="es.regueiro.easyrepair.model.repair.Estimate" access="field" cascade="all-delete-orphan"/>
+        
+        <many-to-one name="vehicle" class="es.regueiro.easyrepair.model.client.Vehicle" access="field" column="VEHICLE_id" not-null="true"/>
+
+        <bag name="partsList" table="REPAIRORDER_PARTLINE" access="field" cascade="all-delete-orphan">
+            <key column="REPAIRORDER_id" not-null="true"/>
+            <one-to-many class="es.regueiro.easyrepair.model.stock.PartLine"  />
+        </bag>
+        <bag name="labourList" table="REPAIRORDER_LABOURLINE" access="field" cascade="all-delete-orphan">
+            <key column="REPAIRORDER_id" not-null="true"/>
+            <one-to-many class="es.regueiro.easyrepair.model.repair.LabourLine"  />
+        </bag>
+    </class>    
+</hibernate-mapping>

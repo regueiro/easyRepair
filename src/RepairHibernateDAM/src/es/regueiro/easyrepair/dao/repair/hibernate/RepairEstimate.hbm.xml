@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.repair.Estimate" table="REPAIRORDER_ESTIMATE" >
+        <id name="id">
+            <generator class="foreign" >
+                <param name="property" >order</param>
+            </generator>
+        </id>
+        <version name="version" column="version" access="field" />
+<!--        <property name="enabled" type="boolean">
+            <column name="enabled" default="1" not-null="true"/>
+        </property>-->
+        <property name="estimateNumber" type="string"  >
+            <column name="estimatenumber" length="11" unique="true"/>
+        </property>
+        <property name="status" type="string" >
+            <column name="status" length="100"/>
+        </property>
+        <property name="discount" type="big_decimal" access="field">
+            <column name="discount" precision="5" scale="2"/>
+        </property>
+        <property name="estimateDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="estimatedate"/>
+        </property>
+        <property name="acceptedDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="accepteddate"/>
+        </property>
+        <property name="notes" type="text">
+            <column name="notes"/>
+        </property>
+        
+        <many-to-one name="responsible" column="RESPONSIBLE_Id" class="es.regueiro.easyrepair.model.employee.Employee" access="field"/>
+        
+        <one-to-one name="order" class="es.regueiro.easyrepair.model.repair.RepairOrder" constrained="true" access="field"/>
+        
+    </class>    
+</hibernate-mapping>

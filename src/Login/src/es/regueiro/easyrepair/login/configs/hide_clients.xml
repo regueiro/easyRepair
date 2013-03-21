@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Menu">
+        <folder name="Clientes">
+            <file name="es-regueiro-easyrepair-ui-client-ClientBrowserTopComponent.shadow_hidden"/>
+        </folder>
+    </folder>
+    <folder name="Toolbars">
+        <folder name="Clientes">
+            <file name="es-regueiro-easyrepair-ui-client-ClientBrowserTopComponent.shadow_hidden"/>
+        </folder>
+    </folder>
+    <folder name="Modules2Enable">
+       <file name="Client Ui">
+         <attr name="codeNameBase" stringvalue="es.regueiro.easyrepair.ui.client"/>
+       </file>
+    </folder>
+</filesystem>

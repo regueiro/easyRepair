@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: es.regueiro.easyrepair.dao.employee.hibernate
+OpenIDE-Module-Localizing-Bundle: es/regueiro/easyrepair/dao/employee/hibernate/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

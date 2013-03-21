@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-feb-2012 22:12:50 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.user.User" table="USER" >
+        <id name="id" type="long">
+            <column name="id" length="11"/>
+            <generator class="identity" />
+        </id>
+        <version name="version" column="version" access="field" />
+        <property name="name" type="string" >
+            <column name="name" length="100" not-null="true" unique="true"/>
+        </property>
+        <property name="password" type="string" access="field">
+            <column name="password" length="100" not-null="true"/>
+        </property>
+        <many-to-one name="role" class="es.regueiro.easyrepair.model.user.Role" column="ROLE_id" not-null="true"/>
+    </class>    
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-feb-2012 22:12:50 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.client.Vehicle" table="VEHICLE" >
+        <id name="id" type="long">
+            <column name="id" length="11"/>
+            <generator class="identity" />
+        </id>
+        <version name="version" column="version" access="field" />
+        <property name="registration" type="string">
+            <column name="registration" length="20" not-null="true"/>
+        </property>
+        <property name="vin" type="string">
+            <column name="vin" length="17" />
+        </property>
+        <property name="make" type="string">
+            <column name="make" length="50" />
+        </property>
+        <property name="model" type="string">
+            <column name="model" length="50" />
+        </property>
+        <property name="year" type="string">
+            <column name="year" length="4" />
+        </property>
+        <property name="colour" type="string">
+            <column name="colour" length="20" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="20" />
+        </property>
+        <property name="fuel" type="string">
+            <column name="fuel" length="20" />
+        </property>
+        <property name="insuranceNumber" type="string">
+            <column name="insurancenumber" length="20" />
+        </property>
+        <property name="notes" type="text">
+            <column name="notes"/>
+        </property>
+        <property name="enabled" type="boolean">
+            <column name="enabled" default="1" not-null="true"/>
+        </property>
+        <many-to-one name="owner" column="CLIENT_Id" class="es.regueiro.easyrepair.model.client.Client" not-null="true" access="field"/>
+        <many-to-one name="insuranceCompany" column="INSURANCE_COMPANY_Id" class="es.regueiro.easyrepair.model.client.InsuranceCompany" access="field"/>
+        <!--<join table="CLIENT_VEHICLE" inverse="true" optional="true">
+            <key column="CLIENT_id"/>
+            <many-to-one name="owner" column="owner" not-null="true"/>
+        </join>-->
+    </class>    
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-lazy="false" >
+    <typedef name="PrivilegeType" class="org.hibernate.type.EnumType">
+        <param name="enumClass">es.regueiro.easyrepair.model.user.Privilege</param>
+        <param name="type">12</param>
+    </typedef>
+    <class name="es.regueiro.easyrepair.model.user.Role" table="ROLE" >
+        <id name="id" type="long">
+            <column name="id" length="11"/>
+            <generator class="identity" />
+        </id>
+        <version name="version" column="version" access="field" />
+
+        <property name="name" type="string">
+            <column name="name" length="100" not-null="true" unique="true"/>
+        </property>
+        <bag name="privileges" table="ROLE_PRIVILEGE" access="field" cascade="all-delete-orphan">
+            <key column="ROLE_id"/>
+            <element column="privilege" type="PrivilegeType"/>
+        </bag>
+        <property name="description" type="text">
+            <column name="description"/>
+        </property>
+    </class>    
+</hibernate-mapping>

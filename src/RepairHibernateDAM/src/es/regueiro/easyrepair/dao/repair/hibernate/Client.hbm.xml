@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-feb-2012 22:12:50 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.client.Client" table="CLIENT" >
+        <id name="id" type="long">
+            <column name="id" length="11"/>
+            <generator class="identity" />
+        </id>
+        <version name="version" column="version" access="field" />
+        <property name="name" type="string" >
+            <column name="name" length="100" not-null="true"/>
+        </property>
+        <property name="surname" type="string">
+            <column name="surname" length="100" />
+        </property>
+        <component name="nif" unique="true">
+            <property name="number" type="string" column="nif" length="9" />
+        </component >
+        <bag name="vehicles" table="CLIENT_VEHICLE" access="field" inverse="true" cascade="all-delete-orphan">
+            <key column="CLIENT_id"/>
+            <one-to-many class="es.regueiro.easyrepair.model.client.Vehicle"  />
+        </bag>
+        <property name="clientId" type="string"  >
+            <column name="clientid" length="11" unique="true"/>
+        </property>
+        <property name="notes" type="text">
+            <column name="notes"/>
+        </property>
+        <property name="enabled" type="boolean">
+            <column name="enabled" default="1" not-null="true"/>
+        </property>
+        <bag name="address" table="CLIENT_ADDRESS" access="field" cascade="all-delete-orphan">
+            <key column="CLIENT_id" not-null="true"/>
+            <one-to-many class="es.regueiro.easyrepair.model.shared.Address"  />
+        </bag>
+        <bag name="email" table="CLIENT_EMAIL" access="field" cascade="all-delete-orphan">
+            <key column="CLIENT_id" not-null="true"/>
+            <one-to-many class="es.regueiro.easyrepair.model.shared.Email" />
+        </bag>
+        <bag name="phone" table="CLIENT_PHONE" access="field" cascade="all-delete-orphan" >
+            <key column="CLIENT_id" not-null="true"/>
+            <one-to-many class="es.regueiro.easyrepair.model.shared.Phone"  />
+        </bag>
+    </class>    
+</hibernate-mapping>

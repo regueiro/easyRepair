@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-feb-2012 22:12:50 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.shared.Email" table="CLIENT_EMAIL" entity-name="Client.cemail">
+        <id name="id" type="long">
+            <generator class="identity"/>
+        </id>
+        <property name="address" type="string" length="150" not-null="true"/>
+        <property name="label" type="string" length="100" not-null="true"/>
+        <property name="notes" type="text"/>
+                
+    </class>
+</hibernate-mapping>

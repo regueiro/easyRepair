@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="OptionsDialog">
+        <file name="es-regueiro-easyrepair-shared-options-CurrencyOptionsPanelController.instance"/>
+        <file name="es-regueiro-easyrepair-shared-options-ShopDataOptionsPanelController.instance"/>
+        <file name="es-regueiro-easyrepair-shared-options-TaxOptionsPanelController.instance"/>
+    </folder>
+</filesystem>

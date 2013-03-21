@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+OpenIDE-Module: es.regueiro.easyrepair.login
+OpenIDE-Module-Install: es/regueiro/easyrepair/login/Installer.class
+OpenIDE-Module-Layer: es/regueiro/easyrepair/login/layer.xml
+OpenIDE-Module-Localizing-Bundle: es/regueiro/easyrepair/login/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-feb-2012 22:12:50 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.client.InsuranceCompany" table="INSURANCE_COMPANY" >
+        <id name="id" type="long">
+            <column name="id" length="11"/>
+            <generator class="identity" />
+        </id>
+        <version name="version" column="version" access="field" />
+        <property name="name" type="string" >
+            <column name="name" length="100" not-null="true"/>
+        </property>
+        <component name="nif" unique="true">
+            <property name="number" type="string" column="nif" length="9" />
+        </component >
+        <property name="web" type="string" >
+            <column name="web" length="100"/>
+        </property>
+        <property name="notes" type="text">
+            <column name="notes"/>
+        </property>
+        <property name="enabled" type="boolean">
+            <column name="enabled" default="1" not-null="true"/>
+        </property>
+        <bag name="address" table="INSURANCE_COMPANY_ADDRESS"  access="field" cascade="all-delete-orphan">
+            <key column="INSURANCE_COMPANY_id" not-null="true"/>
+            <one-to-many entity-name="InsuranceCompany.address"  />
+        </bag>
+        <bag name="email" table="INSURANCE_COMPANY_EMAIL"  access="field" cascade="all-delete-orphan">
+            <key column="INSURANCE_COMPANY_id" not-null="true"/>
+            <one-to-many entity-name="InsuranceCompany.email" />
+        </bag>
+        <bag name="phone" table="INSURANCE_COMPANY_PHONE" access="field" cascade="all-delete-orphan" >
+            <key column="INSURANCE_COMPANY_id" not-null="true"/>
+            <one-to-many entity-name="InsuranceCompany.phone"  />
+        </bag>
+    </class>    
+</hibernate-mapping>

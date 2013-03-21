@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-feb-2012 22:12:50 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping default-lazy="false">
+    <class name="es.regueiro.easyrepair.model.shared.Address" table="SUPPLIER_ADDRESS">
+        <id name="id" type="long">
+            <generator class="identity"/>
+        </id>
+        <property name="label" type="string" length="100"  not-null="true"/>
+        <property name="street" type="string" length="200" />
+        <property name="city" type="string" length="100"/>
+        <property name="province" type="string" length="100"/>
+        <property name="country" type="string" length="100"/>
+        <property name="postalCode" type="string" column="postalcode" length="10"/>
+        <property name="notes" type="text" column="notes" not-null="false"/>
+                
+    </class>
+</hibernate-mapping>

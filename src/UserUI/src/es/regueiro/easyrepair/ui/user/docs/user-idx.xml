@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN" "http://java.sun.com/products/javahelp/index_2_0.dtd">
+<index version="2.0">
+    <indexitem text="Acerca del módulo de usuarios" target="es.regueiro.easyrepair.ui.user.about"/>
+    <indexitem text="Acerca del buscador de usuarios" target="es.regueiro.easyrepair.ui.user.browser"/> 
+    <indexitem text="Acerca del editor de usuarios" target="es.regueiro.easyrepair.ui.user.editor"/>
+    <indexitem text="Acerca del buscador de roles" target="es.regueiro.easyrepair.ui.role.browser"/> 
+    <indexitem text="Acerca del editor de roles" target="es.regueiro.easyrepair.ui.role.editor"/>
+</index>

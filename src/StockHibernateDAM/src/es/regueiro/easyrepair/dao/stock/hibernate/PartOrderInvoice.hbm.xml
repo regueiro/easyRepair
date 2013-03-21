@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.stock.PartOrderInvoice" table="PARTORDER_INVOICE" >
+        <id name="id" column="ORDER_ID">
+            <generator class="foreign">
+                <param name="property">order</param>
+            </generator>
+        </id>
+ <!--       <version name="version" column="version" access="field" />
+        <property name="enabled" type="boolean">
+            <column name="enabled" default="1" not-null="true"/>
+        </property>-->
+
+        <property name="invoiceNumber" type="string"  >
+            <column name="invoicenumber" length="11" unique="true"/>
+        </property>
+        <property name="status" type="string" >
+            <column name="status" length="100"/>
+        </property>
+        <property name="paymentMethod" type="string" >
+            <column name="paymentMethod" length="100"/>
+        </property>
+        <property name="notes" type="text">
+            <column name="notes"/>
+        </property>
+        <property name="invoiceDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="invoicedate"/>
+        </property>
+        <property name="acceptedDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="accepteddate"/>
+        </property>
+        <property name="estimatedPaymentDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="estimatedpaymentdate"/>
+        </property>
+        <property name="paymentDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="paymentdate"/>
+        </property>
+        
+        <many-to-one name="responsible" column="RESPONSIBLE_Id" class="es.regueiro.easyrepair.model.employee.Employee" access="field"/>
+        
+        <one-to-one name="order" class="es.regueiro.easyrepair.model.stock.PartOrder" constrained="true" access="field"/>
+    </class>    
+</hibernate-mapping>

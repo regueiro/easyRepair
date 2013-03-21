@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.stock.PartOrder" table="PARTORDER" >
+        <id name="id" type="long">
+            <column name="id" length="11"/>
+            <generator class="identity" />
+        </id>
+        <version name="version" column="version" access="field" />
+        <property name="enabled" type="boolean">
+            <column name="enabled" default="1" not-null="true"/>
+        </property>
+        <property name="orderNumber" type="string"  >
+            <column name="ordernumber" length="11" unique="true"/>
+        </property>
+        <property name="status" type="string" >
+            <column name="status" length="100"/>
+        </property>
+        <property name="discount" type="big_decimal" access="field">
+            <column name="discount" precision="5" scale="2"/>
+        </property>
+        <property name="shippingCosts" type="big_decimal" access="field">
+            <column name="shippingcosts" precision="10" scale="2"/>
+        </property>
+        <property name="otherCosts" type="big_decimal" access="field">
+            <column name="othercosts" precision="10" scale="2"/>
+        </property>
+        <property name="notes" type="text">
+            <column name="notes"/>
+        </property>
+        <property name="orderDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="orderdate"/>
+        </property>
+        <property name="estimatedDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="estimateddate"/>
+        </property>
+        <property name="receiptDate" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate" >
+            <column name="receiptdate"/>
+        </property>
+        
+        <many-to-one name="supplier" column="SUPPLIER_Id" class="es.regueiro.easyrepair.model.stock.Supplier" not-null="true" access="field"/>
+        <many-to-one name="responsible" column="RESPONSIBLE_Id" class="es.regueiro.easyrepair.model.employee.Employee" access="field"/>
+        <many-to-one name="shippingWarehouse" column="WAREHOUSE_Id" class="es.regueiro.easyrepair.model.stock.Warehouse" access="field"/>
+        
+        <one-to-one name="invoice" class="es.regueiro.easyrepair.model.stock.PartOrderInvoice" access="field" cascade="all-delete-orphan"/>
+        
+        <bag name="partsList" table="PARTORDER_PARTLINE" access="field" cascade="all-delete-orphan">
+            <key column="PARTORDER_id" not-null="true"/>
+            <one-to-many class="es.regueiro.easyrepair.model.stock.PartLine"  />
+        </bag>
+    </class>    
+</hibernate-mapping>

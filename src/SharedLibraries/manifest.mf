@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: es.regueiro.easyrepair.shared.libraries
+OpenIDE-Module-Layer: es/regueiro/easyrepair/shared/libraries/layer.xml
+OpenIDE-Module-Localizing-Bundle: es/regueiro/easyrepair/shared/libraries/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

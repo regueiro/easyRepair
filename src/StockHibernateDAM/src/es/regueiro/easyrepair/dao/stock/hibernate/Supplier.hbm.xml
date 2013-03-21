@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.stock.Supplier" table="SUPPLIER" >
+        <id name="id" type="long">
+            <column name="id" length="11"/>
+            <generator class="identity" />
+        </id>
+        <version name="version" column="version" access="field" />
+        <property name="name" type="string" >
+            <column name="name" length="100" not-null="true"/>
+        </property>
+        <component name="nif" unique="true">
+            <property name="number" type="string" column="nif" length="9" />
+        </component >
+        <property name="notes" type="text">
+            <column name="notes"/>
+        </property>
+        <property name="web" type="string" >
+            <column name="web" length="100"/>
+        </property>
+        <property name="category" type="string" >
+            <column name="category" length="100"/>
+        </property>
+        <property name="paymentMethod" type="string" >
+            <column name="paymentmethod" length="100"/>
+        </property>
+        <property name="shippingMethod" type="string" >
+            <column name="shippingmethod" length="100"/>
+        </property>
+        <property name="enabled" type="boolean">
+            <column name="enabled" default="1" not-null="true"/>
+        </property>
+        <bag name="address" table="SUPPLIER_ADDRESS" access="field" cascade="all-delete-orphan">
+            <key column="SUPPLIER_id" not-null="true"/>
+            <one-to-many class="es.regueiro.easyrepair.model.shared.Address"  />
+        </bag>
+        <bag name="email" table="SUPPLIER_EMAIL" access="field" cascade="all-delete-orphan">
+            <key column="SUPPLIER_id" not-null="true"/>
+            <one-to-many class="es.regueiro.easyrepair.model.shared.Email" />
+        </bag>
+        <bag name="phone" table="SUPPLIER_PHONE" access="field" cascade="all-delete-orphan" >
+            <key column="SUPPLIER_id" not-null="true"/>
+            <one-to-many class="es.regueiro.easyrepair.model.shared.Phone"  />
+        </bag>
+    </class>    
+</hibernate-mapping>

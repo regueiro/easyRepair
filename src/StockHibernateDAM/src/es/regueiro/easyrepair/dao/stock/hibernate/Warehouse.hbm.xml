@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-lazy="false" >
+    <class name="es.regueiro.easyrepair.model.stock.Warehouse" table="WAREHOUSE" >
+        <id name="id" type="long">
+            <column name="id" length="11"/>
+            <generator class="identity" />
+        </id>
+        <version name="version" column="version" access="field" />
+        <property name="enabled" type="boolean">
+            <column name="enabled" default="1" not-null="true"/>
+        </property>
+        <property name="name" type="string" access="field">
+            <column name="name" length="100" not-null="true"/>
+        </property>
+        <property name="notes" type="text">
+            <column name="notes"/>
+        </property>
+        <component name="address" class="es.regueiro.easyrepair.model.shared.Address">
+            <property name="street" type="string" length="200" column="address_street" />
+            <property name="city" type="string" length="100" column="address_city"/>
+            <property name="province" type="string" length="100" column="address_province"/>
+            <property name="country" type="string" length="100" column="address_country"/>
+            <property name="postalCode" type="string" column="address_postalcode" length="10"/>
+            <property name="notes" type="text" column="address_notes" not-null="false"/>
+            <property name="label" type="string" length="100" column="address_label"/>
+        </component>
+        <component name="email" class="es.regueiro.easyrepair.model.shared.Email">
+            <property name="address" type="string" length="150" column="email_address" access="field"/>
+            <property name="notes" type="text" column="email_notes" access="field"/>
+            <property name="label" type="string" length="100" column="email_label" access="field"/>
+        </component>
+        <component name="phone" class="es.regueiro.easyrepair.model.shared.Phone">
+            <property name="number" type="string" length="20" column="phone_number" access="field"/>
+            <property name="notes" type="text" column="phone_notes" access="field"/>
+            <property name="label" type="string" length="100" column="phone_label" access="field"/>
+        </component>
+    </class>    
+</hibernate-mapping>

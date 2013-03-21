@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: es.regueiro.easyrepair.api.employee
+OpenIDE-Module-Localizing-Bundle: es/regueiro/easyrepair/api/employee/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

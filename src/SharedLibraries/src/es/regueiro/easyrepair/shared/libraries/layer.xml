@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Menu">
+        <folder name="File">
+            <attr name="position" intvalue="1"/>
+        </folder>
+        <folder name="Edit">
+            <attr name="position" intvalue="2"/>
+        </folder>
+        <folder name="View">
+            <attr name="position" intvalue="3"/>
+        </folder>
+        <folder name="Clientes">
+            <attr name="position" intvalue="4"/>
+        </folder>
+        <folder name="Reparaciones">
+            <attr name="position" intvalue="5"/>
+        </folder>
+        <folder name="Piezas">
+            <attr name="position" intvalue="6"/>
+        </folder>
+        <folder name="Empleados">
+            <attr name="position" intvalue="7"/>
+        </folder>
+        <folder name="Usuarios">
+            <attr name="position" intvalue="8"/>
+        </folder>
+        <folder name="Tools">
+            <attr name="position" intvalue="9"/>
+        </folder>
+        <folder name="Window">
+            <attr name="position" intvalue="10"/>
+        </folder>
+        <folder name="Help">
+            <attr name="position" intvalue="11"/>
+        </folder>
+        <file name="Refactoring_hidden"/>
+        <file name="BuildProject_hidden"/>
+        <file name="RunProject_hidden"/>
+        <file name="Versioning_hidden"/>
+    </folder>
+    <folder name="Toolbars">
+        <file name="Build_hidden"/>
+        <folder name="Clientes">
+            <attr name="position" intvalue="1"/>
+        </folder>
+        <file name="Debug_hidden"/>
+        <file name="File_hidden"/>
+        <file name="Memory_hidden"/>
+        <folder name="Reparaciones">
+            <attr name="position" intvalue="2"/>
+        </folder>
+        <folder name="Piezas">
+            <attr name="position" intvalue="3"/>
+        </folder>
+        <folder name="Empleados">
+            <attr name="position" intvalue="4"/>
+        </folder>
+        <folder name="Usuarios">
+            <attr name="position" intvalue="5"/>
+        </folder>
+        <folder name="UndoRedo">
+            <attr name="position" intvalue="6"/>
+        </folder>
+        <folder name="Clipboard">
+            <attr name="position" intvalue="7"/>
+        </folder>
+    </folder>
+
+</filesystem>
