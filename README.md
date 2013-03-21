@@ -5,7 +5,9 @@ easyRepair
 
 ## Objetivo
 
-Desarrollo de una herramienta que permita el registro de clientes, vehículos, reparaciones, pedidos y stock de piezas, así como la generación de facturas y presupuestos. Creado en Java usando Netbeans Platform, Hibernate, MySQL y Jasper Reports.
+Desarrollo de una herramienta que permita el registro de clientes, vehículos, reparaciones, pedidos y stock de piezas, así como la generación de facturas y presupuestos.
+
+Creado en Java usando Netbeans Platform, Hibernate, MySQL y Jasper Reports.
 
 ![Buscador de clientes](https://github.com/regueiro/easyRepair/raw/master/documentacion/screenshots/2-buscadorclientes.png)
 ![Editor de pedidos](https://github.com/regueiro/easyRepair/raw/master/documentacion/screenshots/8-editor-pedidos.png)
